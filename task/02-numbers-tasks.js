@@ -200,8 +200,14 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(n) {
-    
+function isPrime(n, arr) {
+    var start = 2;
+  while (start <= Math.sqrt(n)) {
+    if (n % start++ < 1) {
+      return false;
+    }
+  }
+  return n > 1;
 }
 
 /**
