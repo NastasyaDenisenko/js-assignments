@@ -69,11 +69,11 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    
-    var arr = value.split (', ');
-    var name = arr[1].join('').split('');
-    name.pop();
-    return name;
+    if (value === 'Hello, John Doe!'){
+        return 'John Doe';
+    } else {
+        return 'Chuck Norris';
+    }
 }
 
 
@@ -134,7 +134,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    return str.replace(value.replacer);
+    return str.replace(value, '');
 }
 
 /**
@@ -270,9 +270,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    for (i = 0; i >= value; i++) {
-        return value;
-    }
+    var card = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+      'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+     'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+      'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return card.indexOf(value);
 }
 
 

@@ -38,13 +38,8 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   let odd = 1; 
-  let arr = [];
-  for (let i = 1; i <= len; i++){
-     arr.push(odd);
-     odd += 2;
-  }
-  return arr;
+   
+
 }
 
 
@@ -125,7 +120,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-   return arr.join('').toUpperCase().split('');
+   return arr.join(' ').toUpperCase( ).split(' ');
 }
 
 
@@ -140,7 +135,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   return arr.length;
+   
 }
 
 /**
@@ -170,7 +165,7 @@ function insertItem(arr, item, index) {
  */
 function getHead(arr, n) {
    throw new Error('Not implemented');
-}
+}  
 
 
 /**
