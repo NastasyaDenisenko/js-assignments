@@ -225,7 +225,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    return str.replace(/[A-Za-z]/g, function(a) {
+        return String.fromCharCode( a.charCodeAt(0) + ( a.toUpperCase() <= "M" ? 13 : -13 ) );
+        });
 }
 
 /**
