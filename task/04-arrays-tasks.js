@@ -38,8 +38,17 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   
+   let arr = [];
 
+   if (Number.isIntegeer(len) && len >= 0 && len <= 4294967295) {
+      let counter = -1;
+
+      arr = new Array(len).fill(counter).map(function(i) {
+return counter += 2;
+      });
+   } 
+
+   return arr;
 }
 
 
@@ -151,7 +160,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-   throw new Error('Not implemented');
+   return arr.splice(index, 0, item);
 }
 
 /**
@@ -165,7 +174,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   throw new Error('Not implemented');
+   return arr.slice(0, n);
 }  
 
 
@@ -205,7 +214,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+    return arr.join('\n');
 }
 
 /**
@@ -220,7 +229,10 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-     
+     let squares = arr.map(function(sqr){
+        return sqr * sqr;
+     })
+     return squares;
 }
 
 
@@ -255,7 +267,9 @@ return arr;
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(function (items, index){
+      return (index + 1) % 2 === 0;
+   });
 }
 
 
@@ -293,7 +307,10 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   return arr.slice( -3, -2, -1);
+   arr.sort(function(a, b){
+      return b - a;
+   })
+   return arr.slice(0, 3);
 }
  
  
@@ -311,7 +328,10 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   return arr.reduce((prev, cur) => prev + (cur === item), 0);
+   var count = arr.filter(function (value){
+      return value > 0 && typeof value == "number";
+   })
+   return count.length;
 }
  
 /** 
@@ -344,7 +364,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce(function(total, value){
+      return total + value;
+   }, 0)
 }
  
 /** 
@@ -360,7 +382,10 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-      
+      let count = arr.filter(function(value){
+         return !value;
+      })
+      return count.length;
 }
 
 /**
@@ -393,7 +418,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.join (',');
 }
 
 
