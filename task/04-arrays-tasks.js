@@ -40,7 +40,7 @@ function findElement(arr, value) {
 function generateOdds(len) {
    let arr = [];
 
-   if (Number.isIntegeer(len) && len >= 0 && len <= 4294967295) {
+   if (Number.isInteger(len) && len >= 0 && len <= 4294967295) {
       let counter = -1;
 
       arr = new Array(len).fill(counter).map(function(i) {
@@ -145,7 +145,10 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   return arr.join(' ').length;
+   let res = arr.map(function(elem){
+      return elem.length;
+      })
+      return res;
 }
 
 /**
@@ -506,7 +509,6 @@ function distinct(arr) {
       return self.indexOf(value) === index;
   }
   var unique = arr.filter( onlyUnique ); 
-
   return unique;   
  }
 
@@ -557,7 +559,9 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+   let res = [];
+   arr.map(x => res = res.concat(childrenSelector(x)));
+   return res;
 }
 
 

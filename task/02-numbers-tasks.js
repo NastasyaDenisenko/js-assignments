@@ -226,7 +226,10 @@ function isPrime(n, arr) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-   value = def.parseInt();
+    let a = Number.parseInt(value);
+    if (Number.isFinite(a)) 
+    return a;
+    else return def;
 }
 
 module.exports = {
