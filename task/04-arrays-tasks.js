@@ -486,8 +486,9 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
-}
+      return Array(end - start + 1).fill().map((_, idx) => start + idx)
+    }
+
 
 /**
  * Returns array containing only unique values from the specified array.
@@ -501,8 +502,13 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
-}
+   function onlyUnique(value, index, self) { 
+      return self.indexOf(value) === index;
+  }
+  var unique = arr.filter( onlyUnique ); 
+
+  return unique;   
+ }
 
 /**
  * Groups elements of the specified array by key.
